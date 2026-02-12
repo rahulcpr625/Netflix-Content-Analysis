@@ -1,0 +1,113 @@
+body {
+    background-image: url('netflix_background.png');
+    background-color: #141414;
+    color: white;
+    font-family: 'Helvetica Neue', sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container { margin-top: 60px; }
+h2, h3 { color: #fff; }
+span { color: #e50914; }
+
+.logo {
+  width: 120px;
+  height: auto;
+  margin: 20px 0;
+}
+
+/* --- Carousel --- */
+.carousel-container {
+    position: relative;
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+}
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
+}
+.carousel::-webkit-scrollbar { display: none; }
+
+/* --- Scroll buttons --- */
+.scroll-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+    border-radius: 50%;
+}
+.scroll-btn.left { left: 10px; }
+.scroll-btn.right { right: 10px; }
+.scroll-btn:hover { background-color: rgba(0,0,0,0.8); }
+
+/* --- Card --- */
+.card {
+    background-color: #222;
+    padding: 15px;
+    border-radius: 12px;
+    width: 220px;
+    flex-shrink: 0;
+    box-shadow: 0 0 10px #000;
+    transition: transform 0.3s ease;
+    position: relative;
+}
+.card:hover { transform: scale(1.08); }
+
+.poster {
+    width: 100%;
+    height: 300px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+h3 { color: #e50914; font-size: 18px; margin: 8px 0; }
+.plot { font-size: 13px; color: #ccc; margin-top: 5px; height: 60px; overflow: hidden; }
+
+.more-btn {
+    display: inline-block;
+    margin-top: 8px;
+    background-color: #e50914;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13px;
+}
+.more-btn:hover { background-color: #f40612; }
+.back-btn { display: inline-block; margin-top: 40px; color: #e50914; text-decoration: none; font-size: 18px; }
+
+/* --- Type Badge --- */
+.type-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    padding: 4px 8px;
+    border-radius: 10px;
+    font-size: 11px;
+    font-weight: bold;
+    color: white;
+    background: rgba(0,0,0,0.6);
+    text-transform: uppercase;
+}
+.type-badge.movie { background-color: #e50914; }
+.type-badge.tv\ show { background-color: #1f8ef1; }
+
+.badge {
+    background-color: #e50914;
+    padding: 3px 10px;
+    border-radius: 10px;
+    font-size: 14px;
+}
