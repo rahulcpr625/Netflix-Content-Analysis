@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recommendations for {{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>{{ title }} is predicted as: <span class="badge">{{ predicted_type }}</span></h2>
+        <h3>Top Picks Similar to <span>{{ title }}</span></h3>
+
+        <div class="carousel-container">
+            <button class="scroll-btn left" onclick="scrollLeft()">&#10094;</button>
+
+            <div class="carousel" id="carousel">
+                {% for r in recommendations %}
+                    <div class="card">
+                        <span class="type-badge {{ r.type | lower }}">{{ r.type }}</span>
+                        <a href="{{ r.imdb_url }}" target="_blank">
+                            <img src="{{ r.poster }}" alt="{{ r.title }}" class="poster">
+                        </a>
+                        <h3>{{ r.title }}</h3>
+                        <p><strong>Genre:</strong> {{ r.listed_in }}</p>
+                        <p><strong>Year:</strong> {{ r.release_year }}</p>
+                        <p class="plot">{{ r.plot }}</p>
+                        <a href="{{ r.imdb_url }}" target="_blank" class="more-btn">More Info →</a>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <button class="scroll-btn right" onclick="scrollRight()">&#10095;</button>
+        </div>
+
+        <a href="/" class="back-btn">🔙 Back</a>
+    </div>
+
+    <script>
+        const carousel = document.getElementById('carousel');
+        function scrollLeft() { carousel.scrollBy({ left: -300, behavior: 'smooth' }); }
+        function scrollRight() { carousel.scrollBy({ left: 300, behavior: 'smooth' }); }
+    </script>
+</body>
+</html>
